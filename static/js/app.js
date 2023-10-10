@@ -130,7 +130,18 @@ function build_metadata(sample_id) {
 };
 
 function build_gauge_chart(sample_id) {
-  // Implementation goes here
+  d3.json(url).then((data) => {
+    let metadata = data.metadata;
+    let filterData = metadata.filter(result => result.id == sample_id);
+    let valueData = filterData[0];  
+    let numScrubs = valueData.wfreq;
+    console.log(numScrubs)
+    let gaugeLayout = {
+      title: "Number of Scrubs per Week",
+      
+
+    }
+  });
 };
 
 console.log("test message for console");
